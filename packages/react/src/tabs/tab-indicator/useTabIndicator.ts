@@ -5,6 +5,7 @@ import type { TabsRootContext } from '../root/TabsRootContext';
 import { mergeReactProps } from '../../utils/mergeReactProps';
 import { GenericHTMLProps } from '../../utils/types';
 import { useForcedRerendering } from '../../utils/useForcedRerendering';
+import { tabIndicatorCssVars } from './tabIndicatorCssVars';
 
 function round(value: number) {
   return Math.round(value * 100) * 0.01;
@@ -88,12 +89,12 @@ export function useTabIndicator(
     }
 
     return {
-      '--active-tab-left': `${left}px`,
-      '--active-tab-right': `${right}px`,
-      '--active-tab-top': `${top}px`,
-      '--active-tab-bottom': `${bottom}px`,
-      '--active-tab-width': `${width}px`,
-      '--active-tab-height': `${height}px`,
+      [tabIndicatorCssVars.activeTabLeft]: `${left}px`,
+      [tabIndicatorCssVars.activeTabRight]: `${right}px`,
+      [tabIndicatorCssVars.activeTabTop]: `${top}px`,
+      [tabIndicatorCssVars.activeTabBottom]: `${bottom}px`,
+      [tabIndicatorCssVars.activeTabWidth]: `${width}px`,
+      [tabIndicatorCssVars.activeTabHeight]: `${height}px`,
     } as React.CSSProperties;
   }, [left, right, top, bottom, width, height, isTabSelected]);
 

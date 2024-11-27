@@ -6,5 +6,9 @@
     },
     "render": { "description": "A function to customize rendering of the component." }
   },
-  "classDescriptions": {}
+  "classDescriptions": {},
+  "cssVariablesDescriptions": {
+    "--scroll-area-corner-height": "The scroll area corner&#39;s height.",
+    "--scroll-area-corner-width": "The scroll area corner&#39;s width."
+  }
 }

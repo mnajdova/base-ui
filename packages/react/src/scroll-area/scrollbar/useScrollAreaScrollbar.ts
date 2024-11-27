@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useScrollAreaRootContext } from '../root/ScrollAreaRootContext';
 import { mergeReactProps } from '../../utils/mergeReactProps';
+import { scrollAreaCornerCssVars } from '../corner/scrollAreaCornerCssVars';
+import { scrollAreaThumbCssVars } from '../thumb/scrollAreaThumbCssVars';
 
 export function useScrollAreaScrollbar(params: useScrollAreaScrollbar.Parameters) {
   const { orientation } = params;
@@ -134,15 +136,16 @@ export function useScrollAreaScrollbar(params: useScrollAreaScrollbar.Parameters
           touchAction: 'none',
           ...(orientation === 'vertical' && {
             top: 0,
-            bottom: 'var(--scroll-area-corner-height)',
+            bottom: `var(${scrollAreaCornerCssVars.scrollAreaCornerHeight})`,
             [dir === 'rtl' ? 'left' : 'right']: 0,
-            ['--scroll-area-thumb-height' as string]: `${thumbSize.height}px`,
+            [scrollAreaThumbCssVars.scrollAreaThumbHeight]: `${thumbSize.height}px`,
           }),
           ...(orientation === 'horizontal' && {
             [dir === 'rtl' ? 'right' : 'left']: 0,
-            [dir === 'rtl' ? 'left' : 'right']: 'var(--scroll-area-corner-width)',
+            [dir === 'rtl' ? 'left' : 'right']:
+              `var(${scrollAreaCornerCssVars.scrollAreaCornerWidth})`,
             bottom: 0,
-            ['--scroll-area-thumb-width' as string]: `${thumbSize.width}px`,
+            [scrollAreaThumbCssVars.scrollAreaThumbWidth]: `${thumbSize.width}px`,
           }),
         },
       }),

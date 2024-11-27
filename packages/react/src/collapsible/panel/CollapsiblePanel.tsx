@@ -7,6 +7,7 @@ import { useCollapsibleRootContext } from '../root/CollapsibleRootContext';
 import type { CollapsibleRoot } from '../root/CollapsibleRoot';
 import { collapsibleStyleHookMapping } from '../root/styleHooks';
 import { useCollapsiblePanel } from './useCollapsiblePanel';
+import { collapsiblePanelCssVars } from './collapsiblePanelCssVars';
 
 /**
  *
@@ -48,8 +49,8 @@ const CollapsiblePanel = React.forwardRef(function CollapsiblePanel(
       ...otherProps,
       style: {
         ...otherProps.style,
-        '--collapsible-panel-height': height ? `${height}px` : undefined,
-        '--collapsible-panel-width': width ? `${width}px` : undefined,
+        [collapsiblePanelCssVars.collapsiblePanelHeight]: height ? `${height}px` : undefined,
+        [collapsiblePanelCssVars.collapsiblePanelWidth]: width ? `${width}px` : undefined,
       },
     },
     customStyleHookMapping: collapsibleStyleHookMapping,

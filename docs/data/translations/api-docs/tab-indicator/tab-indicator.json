@@ -9,5 +9,13 @@
       "description": "If <code>true</code>, the indicator will include code to render itself before React hydrates. This will minimize the time the indicator is not visible after the SSR-generated content is downloaded."
     }
   },
-  "classDescriptions": {}
+  "classDescriptions": {},
+  "cssVariablesDescriptions": {
+    "--active-tab-bottom": "The active tab&#39;s bottom distance.",
+    "--active-tab-height": "The active tab&#39;s height.",
+    "--active-tab-left": "The active tab&#39;s left distance.",
+    "--active-tab-right": "The active tab&#39;s right distance.",
+    "--active-tab-top": "The active tab&#39;s top distance.",
+    "--active-tab-width": "The active tab&#39;s width."
+  }
 }

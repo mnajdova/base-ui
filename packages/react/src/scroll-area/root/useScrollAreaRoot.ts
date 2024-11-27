@@ -4,6 +4,7 @@ import { useEnhancedEffect } from '../../utils/useEnhancedEffect';
 import { mergeReactProps } from '../../utils/mergeReactProps';
 import { useId } from '../../utils/useId';
 import { SCROLL_TIMEOUT } from '../constants';
+import { scrollAreaCornerCssVars } from '../corner/scrollAreaCornerCssVars';
 
 interface Size {
   width: number;
@@ -173,8 +174,8 @@ export function useScrollAreaRoot(params: useScrollAreaRoot.Parameters) {
         },
         style: {
           position: 'relative',
-          ['--scroll-area-corner-width' as string]: `${cornerSize.width}px`,
-          ['--scroll-area-corner-height' as string]: `${cornerSize.height}px`,
+          [scrollAreaCornerCssVars.scrollAreaCornerWidth]: `${cornerSize.width}px`,
+          [scrollAreaCornerCssVars.scrollAreaCornerHeight]: `${cornerSize.height}px`,
         },
       }),
     [cornerSize, dir, handlePointerEnterOrMove],

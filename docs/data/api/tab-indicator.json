@@ -8,6 +8,14 @@
   "imports": [
     "import { Tabs } from '@base-ui-components/react/tabs';\nconst TabIndicator = Tabs.Indicator;"
   ],
+  "cssVariables": {
+    "--active-tab-bottom": { "description": "The active tab's bottom distance.", "type": "number" },
+    "--active-tab-height": { "description": "The active tab's height.", "type": "number" },
+    "--active-tab-left": { "description": "The active tab's left distance.", "type": "number" },
+    "--active-tab-right": { "description": "The active tab's right distance.", "type": "number" },
+    "--active-tab-top": { "description": "The active tab's top distance.", "type": "number" },
+    "--active-tab-width": { "description": "The active tab's width.", "type": "number" }
+  },
   "classes": [],
   "spread": true,
   "themeDefaultProps": true,
