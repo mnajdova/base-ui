@@ -53,6 +53,7 @@ export const CheckboxRoot = React.forwardRef(function CheckboxRoot(
     render,
     required = false,
     value: valueProp,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

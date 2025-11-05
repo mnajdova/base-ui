@@ -31,6 +31,7 @@ export const ComboboxClear = React.forwardRef(function ComboboxClear(
     render,
     className,
     disabled: disabledProp = false,
+    // check this
     nativeButton = true,
     keepMounted = false,
     ...elementProps
