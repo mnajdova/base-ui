@@ -39,6 +39,7 @@ export const RadioRoot = React.forwardRef(function RadioRoot(
     required: requiredProp = false,
     value,
     inputRef: inputRefProp,
+    // check this
     nativeButton = true,
     id: idProp,
     ...elementProps

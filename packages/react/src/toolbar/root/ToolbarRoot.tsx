@@ -17,6 +17,7 @@ export const ToolbarRoot = React.forwardRef(function ToolbarRoot(
 ) {
   const {
     disabled = false,
+    // check this
     loop = true,
     orientation = 'horizontal',
     className,

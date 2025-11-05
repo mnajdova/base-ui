@@ -58,6 +58,7 @@ export const AccordionTrigger = React.forwardRef(function AccordionTrigger(
     className,
     id: idProp,
     render,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

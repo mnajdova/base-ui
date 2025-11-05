@@ -31,6 +31,7 @@ export const ToggleGroup = React.forwardRef(function ToggleGroup(
   const {
     defaultValue: defaultValueProp,
     disabled: disabledProp = false,
+    // check this
     loop = true,
     onValueChange,
     orientation = 'horizontal',

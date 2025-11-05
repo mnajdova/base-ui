@@ -37,6 +37,7 @@ export const CollapsibleTrigger = React.forwardRef(function CollapsibleTrigger(
     disabled = contextDisabled,
     id,
     render,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

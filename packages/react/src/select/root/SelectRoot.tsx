@@ -39,6 +39,7 @@ export function SelectRoot<Value, Multiple extends boolean | undefined = false>(
     disabled = false,
     readOnly = false,
     required = false,
+    // check this
     modal = true,
     actionsRef,
     inputRef,

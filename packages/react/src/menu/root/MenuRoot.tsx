@@ -56,12 +56,14 @@ export const MenuRoot: React.FC<MenuRoot.Props> = function MenuRoot(props) {
     defaultOpen = false,
     disabled: disabledProp = false,
     modal: modalProp,
+    // check this
     loop = true,
     orientation = 'vertical',
     actionsRef,
     openOnHover: openOnHoverProp,
     delay = 100,
     closeDelay = 0,
+    // check this
     closeParentOnEsc = true,
   } = props;
 

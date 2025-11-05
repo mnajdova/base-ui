@@ -31,6 +31,7 @@ export const MenuTrigger = React.forwardRef(function MenuTrigger(
     render,
     className,
     disabled: disabledProp = false,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

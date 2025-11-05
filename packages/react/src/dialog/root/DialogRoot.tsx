@@ -21,7 +21,9 @@ export function DialogRoot<Payload>(props: DialogRoot.Props<Payload>) {
     defaultOpen = false,
     onOpenChange,
     onOpenChangeComplete,
+    // check this
     dismissible = true,
+    // check this
     modal = true,
     actionsRef,
     handle,

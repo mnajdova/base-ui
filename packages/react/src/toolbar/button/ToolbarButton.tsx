@@ -20,8 +20,10 @@ export const ToolbarButton = React.forwardRef(function ToolbarButton(
   const {
     className,
     disabled: disabledProp = false,
+    // check this
     focusableWhenDisabled = true,
     render,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

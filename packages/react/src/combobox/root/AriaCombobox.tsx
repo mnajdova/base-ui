@@ -94,15 +94,18 @@ export function AriaCombobox<Value = any, Mode extends SelectionMode = 'none'>(
     items,
     filteredItems: filteredItemsProp,
     filter: filterProp,
+    // check this
     openOnInputClick = true,
     autoHighlight = false,
     keepHighlight = false,
+    // check this
     highlightItemOnHover = true,
     itemToStringLabel,
     itemToStringValue,
     isItemEqualToValue = defaultItemEquality,
     virtualized = false,
     inline: inlineProp = false,
+    // check this
     fillInputOnItemPress = true,
     modal = false,
     limit = -1,

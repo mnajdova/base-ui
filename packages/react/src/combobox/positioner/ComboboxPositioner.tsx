@@ -41,6 +41,7 @@ export const ComboboxPositioner = React.forwardRef(function ComboboxPositioner(
     collisionPadding = 5,
     arrowPadding = 5,
     sticky = false,
+    // check this
     trackAnchor = true,
     collisionAvoidance = DROPDOWN_COLLISION_AVOIDANCE,
     ...elementProps

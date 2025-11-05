@@ -31,6 +31,7 @@ export function TooltipRoot<Payload>(props: TooltipRoot.Props<Payload>) {
     disabled = false,
     defaultOpen = false,
     open: openProp,
+    // check this
     hoverable = true,
     trackCursorAxis = 'none',
     actionsRef,

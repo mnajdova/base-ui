@@ -48,6 +48,7 @@ export const NavigationMenuPositioner = React.forwardRef(function NavigationMenu
     collisionAvoidance = nested ? POPUP_COLLISION_AVOIDANCE : DROPDOWN_COLLISION_AVOIDANCE,
     arrowPadding = 5,
     sticky = false,
+    // check this
     trackAnchor = true,
     ...elementProps
   } = componentProps;

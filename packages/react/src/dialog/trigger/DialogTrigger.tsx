@@ -26,6 +26,7 @@ export const DialogTrigger = React.forwardRef(function DialogTrigger(
     render,
     className,
     disabled = false,
+    // check this
     nativeButton = true,
     id: idProp,
     payload,

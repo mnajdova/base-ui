@@ -15,6 +15,7 @@ export const ToastAction = React.forwardRef(function ToastAction(
   componentProps: ToastAction.Props,
   forwardedRef: React.ForwardedRef<HTMLButtonElement>,
 ) {
+  // check this
   const { render, className, disabled, nativeButton = true, ...elementProps } = componentProps;
 
   const { toast } = useToastRootContext();

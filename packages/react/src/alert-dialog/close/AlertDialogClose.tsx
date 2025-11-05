@@ -19,6 +19,7 @@ export const AlertDialogClose = React.forwardRef(function AlertDialogClose(
     render,
     className,
     disabled = false,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

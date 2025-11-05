@@ -26,6 +26,7 @@ export const MenuItem = React.forwardRef(function MenuItem(
     label,
     nativeButton = false,
     disabled = false,
+    // check this
     closeOnClick = true,
     ...elementProps
   } = componentProps;

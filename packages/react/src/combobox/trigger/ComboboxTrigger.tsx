@@ -33,6 +33,7 @@ export const ComboboxTrigger = React.forwardRef(function ComboboxTrigger(
   const {
     render,
     className,
+    // check this
     nativeButton = true,
     disabled: disabledProp = false,
     ...elementProps

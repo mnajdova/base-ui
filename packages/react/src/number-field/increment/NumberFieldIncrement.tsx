@@ -22,6 +22,7 @@ export const NumberFieldIncrement = React.forwardRef(function NumberFieldIncreme
     render,
     className,
     disabled: disabledProp = false,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

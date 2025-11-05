@@ -37,6 +37,7 @@ export const SwitchRoot = React.forwardRef(function SwitchRoot(
     id: idProp,
     inputRef: externalInputRef,
     name: nameProp,
+    // check this
     nativeButton = true,
     onCheckedChange: onCheckedChangeProp,
     readOnly = false,

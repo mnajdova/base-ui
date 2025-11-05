@@ -45,6 +45,7 @@ export const SelectPositioner = React.forwardRef(function SelectPositioner(
     arrowPadding = 5,
     sticky = false,
     trackAnchor,
+    // check this
     alignItemWithTrigger = true,
     collisionAvoidance = DROPDOWN_COLLISION_AVOIDANCE,
     ...elementProps

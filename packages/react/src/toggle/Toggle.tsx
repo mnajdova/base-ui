@@ -32,6 +32,7 @@ export const Toggle = React.forwardRef(function Toggle(
     render,
     type, // cannot change button type
     value: valueProp,
+    // check this
     nativeButton = true,
     ...elementProps
   } = componentProps;

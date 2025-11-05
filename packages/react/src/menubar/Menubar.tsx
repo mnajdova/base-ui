@@ -27,9 +27,11 @@ export const Menubar = React.forwardRef(function Menubar(
 ) {
   const {
     orientation = 'horizontal',
+    // check this
     loop = true,
     render,
     className,
+    // check this
     modal = true,
     disabled = false,
     id: idProp,

@@ -57,6 +57,7 @@ export const NavigationMenuTrigger = React.forwardRef(function NavigationMenuTri
   componentProps: NavigationMenuTrigger.Props,
   forwardedRef: React.ForwardedRef<HTMLButtonElement>,
 ) {
+  // check this
   const { className, render, nativeButton = true, disabled, ...elementProps } = componentProps;
 
   const {
