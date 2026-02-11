@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(17 24 39);
+  margin-bottom: 0.5rem;
+}
+
+.root {
+  width: 20rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(229 231 235);
+  background-color: white;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: grab;
+  transition: all 150ms;
+}
+
+.content:hover {
+  background-color: rgb(243 244 246);
+}
+
+.content:focus-visible {
+  outline: 2px solid rgb(37 99 235);
+}
+
+.content.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.content.over {
+  background-color: rgb(219 234 254);
+  border: 2px dashed rgb(37 99 235);
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: rgb(75 85 99);
+  transition: transform 150ms;
+}
+
+.indicator[data-expanded] {
+  transform: rotate(90deg);
+}
+
+.spacer {
+  width: 1rem;
+}
+
+.folderIcon {
+  width: 1rem;
+  height: 1rem;
+  color: rgb(59 130 246);
+}
+
+.fileIcon {
+  width: 1rem;
+  height: 1rem;
+  color: rgb(107 114 128);
+}
+
+.label {
+  color: rgb(17 24 39);
+  user-select: none;
+}
+
+.group {
+  padding-left: 1.25rem;
+}
+
+.group[data-ending-style] {
+  display: none;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: rgb(107 114 128);
+  font-style: italic;
+}

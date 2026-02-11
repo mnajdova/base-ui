@@ -16,6 +16,7 @@
     "generate-llms": "node ./scripts/generateLlmTxt/index.mjs"
   },
   "dependencies": {
+    "@atlaskit/pragmatic-drag-and-drop": "^1.3.4",
     "@base-ui/react": "workspace:*",
     "@base-ui/utils": "workspace:*",
     "@mdx-js/loader": "^3.1.1",

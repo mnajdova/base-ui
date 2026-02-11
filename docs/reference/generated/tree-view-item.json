@@ -1,0 +1,38 @@
+{
+  "name": "TreeViewItem",
+  "description": "An individual tree node.\nRenders a `<div>` element.",
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "A unique value that identifies this tree item.\nThis is required and used for expansion and selection."
+    },
+    "index": {
+      "type": "number",
+      "description": "The index of the item in the list.\nUsed for virtualization to improve performance.",
+      "detailedType": "number | undefined"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether this item should ignore user interaction.",
+      "detailedType": "boolean | undefined"
+    },
+    "className": {
+      "type": "string | ((state: TreeView.Item.State) => string | undefined)",
+      "description": "CSS class applied to the element, or a function that\nreturns a class based on the component’s state.",
+      "detailedType": "| string\n| ((state: TreeView.Item.State) => string | undefined)"
+    },
+    "style": {
+      "type": "CSSProperties | ((state: TreeView.Item.State) => CSSProperties | undefined)",
+      "detailedType": "| React.CSSProperties\n| ((\n    state: TreeView.Item.State,\n  ) => CSSProperties | undefined)\n| undefined"
+    },
+    "render": {
+      "type": "ReactElement | ((props: HTMLProps, state: TreeView.Item.State) => ReactElement)",
+      "description": "Allows you to replace the component’s HTML element\nwith a different tag, or compose it with another component.\n\nAccepts a `ReactElement` or a function that returns the element to render.",
+      "detailedType": "| ReactElement\n| ((\n    props: HTMLProps,\n    state: TreeView.Item.State,\n  ) => ReactElement)"
+    }
+  },
+  "dataAttributes": {},
+  "cssVariables": {}
+}

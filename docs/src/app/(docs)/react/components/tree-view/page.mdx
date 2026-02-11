@@ -1,0 +1,118 @@
+# TreeView
+
+<Subtitle>A component for displaying hierarchical data in an expandable tree structure.</Subtitle>
+<Meta
+  name="description"
+  content="An unstyled React TreeView component for displaying hierarchical data with keyboard navigation and full accessibility support."
+/>
+
+import { DemoTreeViewHero } from './demos/hero';
+
+<DemoTreeViewHero />
+
+## Usage guidelines
+
+- **TreeView is for hierarchical data**: Use TreeView when you need to display nested, hierarchical data such as file systems, organizational charts, or category trees.
+- **Keyboard navigation**: TreeView provides full keyboard support following the ARIA tree pattern, including arrow keys for navigation and expansion.
+- **Selection modes**: TreeView supports single selection, multiple selection, or no selection at all, depending on your use case.
+- **Virtualization support**: For large trees with thousands of nodes, TreeView can integrate with virtualization libraries like TanStack Virtual.
+
+## Anatomy
+
+Import the components and place them together:
+
+```jsx title="Anatomy"
+import { TreeView } from '@base-ui/react/tree-view';
+
+<TreeView.Root>
+  <TreeView.Item>
+    <TreeView.ItemContent>
+      <TreeView.ItemIndicator />
+      <TreeView.ItemCheckbox />
+      <TreeView.ItemLabel />
+    </TreeView.ItemContent>
+
+    <TreeView.ItemGroup>{/* Nested TreeView.Item components */}</TreeView.ItemGroup>
+  </TreeView.Item>
+</TreeView.Root>;
+```
+
+## Examples
+
+### Single selection
+
+The TreeView supports single selection mode where only one item can be selected at a time. Click any item's label to select it.
+
+import { DemoTreeViewSingleSelection } from './demos/single-selection';
+
+<DemoTreeViewSingleSelection compact />
+
+### Multiple selection
+
+Use checkboxes for multiple selection mode, allowing users to select multiple items at once.
+
+import { DemoTreeViewMultipleSelection } from './demos/multiple-selection';
+
+<DemoTreeViewMultipleSelection compact />
+
+### Virtualization
+
+For large trees with thousands of nodes, TreeView can be integrated with virtualization libraries like [TanStack Virtual](https://tanstack.com/virtual) to render only the visible items for optimal performance.
+
+import { DemoTreeViewVirtualization } from './demos/virtualization';
+
+<DemoTreeViewVirtualization compact />
+
+### Drag and drop
+
+TreeView can be integrated with drag-and-drop libraries like [Pragmatic drag and drop](https://atlassian.design/components/pragmatic-drag-and-drop/about) to enable reordering and moving items between different parts of the tree.
+
+import { DemoTreeViewDragAndDrop } from './demos/drag-and-drop';
+
+<DemoTreeViewDragAndDrop compact />
+
+## API reference
+
+<Reference
+  component="TreeView"
+  parts="Root, Item, ItemContent, ItemIndicator, ItemLabel, ItemCheckbox, ItemGroup"
+/>
+
+## Keyboard navigation
+
+TreeView follows the [ARIA tree pattern](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role):
+
+- **Arrow Right**: Expand collapsed node, or move to first child if expanded
+- **Arrow Left**: Collapse expanded node, or move to parent if collapsed
+- **Arrow Down**: Move to next visible node
+- **Arrow Up**: Move to previous visible node
+- **Home**: Move to first node
+- **End**: Move to last visible node
+- **Enter/Space**: Select the focused node (when `selectionMode` is not `'none'`)
+- **\* (asterisk)**: Expand all siblings at the same level
+- **Type-ahead**: Jump to nodes by typing their first character
+
+## Accessibility
+
+- TreeView implements the [ARIA tree pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)
+- Uses `role="tree"` on the root and `role="treeitem"` on each node
+- Nested items are wrapped in `role="group"`
+- Arrow indicators use `aria-hidden` when items have no children
+- Full keyboard navigation support
+- Proper focus management with visible focus indicators
+- Screen readers announce expansion state and selection status
+
+export const metadata = {
+  keywords: [
+    'React TreeView',
+    'TreeView Component',
+    'Hierarchical Data',
+    'Tree Navigation',
+    'Accessible TreeView',
+    'File Explorer',
+    'Expandable Tree',
+    'Keyboard Navigation',
+    'Headless React Components',
+    'Base UI',
+  ],
+};

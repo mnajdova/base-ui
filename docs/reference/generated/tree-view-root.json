@@ -1,0 +1,91 @@
+{
+  "name": "TreeViewRoot",
+  "description": "Groups all parts of the tree view.\nRenders a `<div>` element.",
+  "props": {
+    "aria-label": {
+      "type": "string",
+      "description": "The accessible label for the tree.",
+      "detailedType": "string | undefined"
+    },
+    "aria-labelledby": {
+      "type": "string",
+      "description": "The id of the element that labels the tree.",
+      "detailedType": "string | undefined"
+    },
+    "defaultExpanded": {
+      "type": "string[]",
+      "description": "The default value of the items that should be expanded (uncontrolled).",
+      "detailedType": "string[] | undefined"
+    },
+    "defaultSelected": {
+      "type": "TreeViewSelected",
+      "description": "The default selected value(s) (uncontrolled).\n- For single selection: string | null\n- For multiple selection: string[]",
+      "detailedType": "string | string[] | null | undefined"
+    },
+    "expanded": {
+      "type": "string[]",
+      "description": "The controlled value of the items that should be expanded.",
+      "detailedType": "string[] | undefined"
+    },
+    "loopFocus": {
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether focus should loop from last to first item and vice versa.",
+      "detailedType": "boolean | undefined"
+    },
+    "onExpandedChange": {
+      "type": "((expanded: string[], details: BaseUIChangeEventDetails) => void)",
+      "description": "Callback invoked when an item's expansion state changes.",
+      "detailedType": "| ((\n    expanded: string[],\n    details: BaseUIChangeEventDetails,\n  ) => void)\n| undefined"
+    },
+    "onItemHighlighted": {
+      "type": "((value: string | undefined, details: BaseUIGenericEventDetails) => void)",
+      "description": "Callback invoked when an item is highlighted (for virtualization scroll management).",
+      "detailedType": "| ((\n    value: string | undefined,\n    details: BaseUIGenericEventDetails,\n  ) => void)\n| undefined"
+    },
+    "onSelectedChange": {
+      "type": "((selected: TreeViewSelected, details: BaseUIChangeEventDetails) => void)",
+      "description": "Callback invoked when selection changes.",
+      "detailedType": "| ((\n    selected: TreeViewSelected,\n    details: BaseUIChangeEventDetails,\n  ) => void)\n| undefined"
+    },
+    "selected": {
+      "type": "TreeViewSelected",
+      "description": "The controlled selected value(s).\n- For single selection: string | null\n- For multiple selection: string[]",
+      "detailedType": "string | string[] | null | undefined"
+    },
+    "selectionMode": {
+      "type": "'none' | 'single' | 'multiple'",
+      "default": "'none'",
+      "description": "The selection mode.",
+      "detailedType": "'none' | 'single' | 'multiple' | undefined"
+    },
+    "virtualized": {
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the tree is virtualized.\nWhen true, you should use explicit index props on items.",
+      "detailedType": "boolean | undefined"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the tree is disabled.",
+      "detailedType": "boolean | undefined"
+    },
+    "className": {
+      "type": "string | ((state: TreeView.Root.State) => string | undefined)",
+      "description": "CSS class applied to the element, or a function that\nreturns a class based on the component’s state.",
+      "detailedType": "| string\n| ((state: TreeView.Root.State) => string | undefined)"
+    },
+    "style": {
+      "type": "CSSProperties | ((state: TreeView.Root.State) => CSSProperties | undefined)",
+      "detailedType": "| React.CSSProperties\n| ((\n    state: TreeView.Root.State,\n  ) => CSSProperties | undefined)\n| undefined"
+    },
+    "render": {
+      "type": "ReactElement | ((props: HTMLProps, state: TreeView.Root.State) => ReactElement)",
+      "description": "Allows you to replace the component’s HTML element\nwith a different tag, or compose it with another component.\n\nAccepts a `ReactElement` or a function that returns the element to render.",
+      "detailedType": "| ReactElement\n| ((\n    props: HTMLProps,\n    state: TreeView.Root.State,\n  ) => ReactElement)"
+    }
+  },
+  "dataAttributes": {},
+  "cssVariables": {}
+}
