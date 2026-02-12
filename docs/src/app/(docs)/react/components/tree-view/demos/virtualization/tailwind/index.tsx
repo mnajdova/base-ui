@@ -179,6 +179,7 @@ export default function ExampleTreeView() {
           ref={treeRootRef}
           expanded={expanded}
           onExpandedChange={handleExpandedChange}
+          virtualized
           aria-label="Virtualized tree"
           className="w-full relative text-sm p-3"
           style={{ height: virtualizer.getTotalSize() }}

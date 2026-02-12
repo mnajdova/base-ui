@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { BaseUIComponentProps, NativeButtonProps } from '../../utils/types';
+import { BaseUIComponentProps, NativeButtonProps, BaseUIEvent } from '../../utils/types';
 import { useRenderElement } from '../../utils/useRenderElement';
 import { useButton } from '../../use-button';
 import { useTreeViewItemContext } from '../item/TreeViewItemContext';
@@ -29,8 +29,26 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
     native: nativeButton,
   });
 
+  const handleClick = React.useCallback(
+    (event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+      if (disabled) {
+        return;
+      }
+
+      // Only handle clicks directly on this element, not on children (like Label)
+      if (event.target !== event.currentTarget) {
+        return;
+      }
+
+      if (selectionMode !== 'none') {
+        handleSelection(value);
+      }
+    },
+    [disabled, handleSelection, selectionMode, value],
+  );
+
   const handleKeyDown = React.useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
+    (event: BaseUIEvent<React.KeyboardEvent<HTMLDivElement>>) => {
       if (disabled) {
         return;
       }
@@ -41,6 +59,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
         case 'ArrowDown': {
           // Move focus to next visible node
           event.preventDefault();
+          event.preventBaseUIHandler?.();
           const currentIndex = flatItems.findIndex((item) => item.value === value);
           if (currentIndex !== -1 && currentIndex < flatItems.length - 1) {
             setActiveValue(flatItems[currentIndex + 1].value, 'keyboard');
@@ -51,6 +70,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
         case 'ArrowUp': {
           // Move focus to previous visible node
           event.preventDefault();
+          event.preventBaseUIHandler?.();
           const currentIndex = flatItems.findIndex((item) => item.value === value);
           if (currentIndex > 0) {
             setActiveValue(flatItems[currentIndex - 1].value, 'keyboard');
@@ -61,6 +81,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
         case 'Home': {
           // Move focus to first node
           event.preventDefault();
+          event.preventBaseUIHandler?.();
           if (flatItems.length > 0) {
             setActiveValue(flatItems[0].value, 'keyboard');
           }
@@ -70,6 +91,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
         case 'End': {
           // Move focus to last visible node
           event.preventDefault();
+          event.preventBaseUIHandler?.();
           if (flatItems.length > 0) {
             setActiveValue(flatItems[flatItems.length - 1].value, 'keyboard');
           }
@@ -81,12 +103,14 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
             if (!expanded) {
               // Expand collapsed node
               event.preventDefault();
+              event.preventBaseUIHandler?.();
               handleExpandedChange(value, true);
             } else {
               // Move to first child
               const currentIndex = flatItems.findIndex((item) => item.value === value);
               if (currentIndex !== -1 && flatItems[currentIndex + 1]?.parentValue === value) {
                 event.preventDefault();
+                event.preventBaseUIHandler?.();
                 setActiveValue(flatItems[currentIndex + 1].value, 'keyboard');
               }
             }
@@ -98,23 +122,16 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
           if (expanded && hasChildren) {
             // Collapse open node
             event.preventDefault();
+            event.preventBaseUIHandler?.();
             handleExpandedChange(value, false);
           } else {
             // Move to parent
             const currentItem = flatItems.find((item) => item.value === value);
             if (currentItem?.parentValue) {
               event.preventDefault();
+              event.preventBaseUIHandler?.();
               setActiveValue(currentItem.parentValue, 'keyboard');
             }
-          }
-          break;
-        }
-
-        case 'Enter':
-        case ' ': {
-          event.preventDefault();
-          if (selectionMode !== 'none') {
-            handleSelection(value);
           }
           break;
         }
@@ -122,6 +139,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
         case '*': {
           // Expand all siblings at same level
           event.preventDefault();
+          event.preventBaseUIHandler?.();
           const currentItem = flatItems.find((item) => item.value === value);
           if (currentItem) {
             const siblings = flatItems.filter(
@@ -143,9 +161,7 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
       expanded,
       flatItemsRef,
       handleExpandedChange,
-      handleSelection,
       hasChildren,
-      selectionMode,
       setActiveValue,
       value,
     ],
@@ -158,11 +174,14 @@ export const TreeViewItemContent = React.forwardRef(function TreeViewItemContent
       {
         id: contentId,
         tabIndex: disabled ? -1 : 0,
-        onKeyDown: handleKeyDown,
         'data-value': value,
+        onClick: handleClick,
       } as React.HTMLAttributes<HTMLDivElement>,
       elementProps,
       getButtonProps,
+      {
+        onKeyDown: handleKeyDown,
+      },
     ],
     stateAttributesMapping: itemStateAttributesMapping,
   });
